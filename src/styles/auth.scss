@@ -1,0 +1,142 @@
+#page-auth {
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+
+    aside {
+        display: flex;
+        flex-direction: column;
+        flex: 7;
+
+        justify-content: center;        
+
+        background-color: #835afd;
+        color: #ffffff;
+
+        padding: 120px 80px;
+
+        img {
+            max-width: 320px;
+        }
+
+        h1 {
+            font: 700 36px 'Poppins', sans-serif;
+            line-height: 42px;
+            margin-top: 16px;
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 32px;
+            margin-top: 16px;
+            color: #f8f8f8;
+        }
+    }
+
+    main {
+        display: flex;
+        flex: 8;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 0 32px;
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+
+        align-items: stretch;
+        text-align: center;
+
+        width: 100%;
+        max-width: 320px;
+
+        > img {
+            align-self: center;
+        }
+
+        form {
+            button, input {
+                width: 100%;
+            }
+
+            input {
+                padding: 0 16px;
+
+                height: 50px;
+                                
+                border: 1px solid #a8a8b3;
+                border-radius: 8px;
+
+                background-color: #ffffff;
+            }
+
+            button {
+                margin-top: 16px;
+            }            
+        }
+    }
+
+    .create-room {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 64px;
+        
+        height: 50px;
+        
+        font-weight: 500;
+        color: #ffffff;
+        background-color: #ea4335;        
+
+        cursor: pointer;
+        
+        border: 0;
+        border-radius: 8px;
+
+        transition: filter 0.2s;
+
+        img {
+            margin-right: 8px;
+        }
+
+        &:hover {
+            filter: brightness(0.9);
+        }
+    }
+
+    .separator {
+        display: flex;
+        align-items: center;
+
+        margin: 32px 0;
+
+        font-size: 14px;
+        color: #a8a8b3;        
+
+        &::before {
+            content: '';
+            flex: 1;
+
+            margin-right: 16px;
+
+            height: 1px;
+
+            background-color: #a8a8b3;
+        }
+
+        &::after {
+            content: '';
+            flex: 1;
+
+            margin-left: 16px;
+
+            height: 1px;
+
+            background-color: #a8a8b3;
+        }
+    }
+}
