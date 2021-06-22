@@ -1,27 +1,17 @@
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import { useAuth } from '../hooks/useAuth';
+// import { useAuth } from '../hooks/useAuth';
 
 import { Button } from '../components/Button';
 
 import illustrationSvg from '../assets/illustration.svg';
 import logoSvg from '../assets/logo.svg';
-import googleIconSvg from '../assets/google-icon.svg';
 
 import '../styles/auth.scss';
 
-export function Home() {    
+export function NewRoom() {
 
-    const history = useHistory();
-    const { user, signInWithGoogle } = useAuth();
-
-    async function handleCreateRoom() {
-        if (!user) {
-            await signInWithGoogle();
-        } else {
-            history.push('/rooms/new');
-        }
-    }
+    // const { user, signInWithGoogle } = useAuth();
 
     return(        
         <div id="page-auth">
@@ -33,19 +23,17 @@ export function Home() {
             <main>
                 <div className="main-content">
                     <img src={logoSvg} alt="Logo Letmeask" />
-                    <button className="create-room" onClick={handleCreateRoom}>
-                        <img src={googleIconSvg} alt="Criar sala com Google" /> Cria sua sala com o Google
-                    </button>
-                    <div className="separator">Ou entre em uma sala</div>
+                    <h2>Criar uma nova sala</h2>                                                    
                     <form>
                         <input 
                             type="text"
-                            placeholder="Digite o código da sala"
+                            placeholder="Nome da sala"
                         />
                         <Button type="submit">
-                            Entrar na sala
+                            Criar uma nova sala
                         </Button>
                     </form>
+                    <p>Quer entrar em uma sala existente? <Link to="/">Clique aqui</Link></p>
                 </div>
             </main>
         </div>
