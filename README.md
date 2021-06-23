@@ -1,3 +1,10 @@
+# Letmeask
+
+Letmeask is a project that allows users to create realtime Q&A rooms, helping streamers, youtubers, bloggers, and other digital influencers to connect more easily with theirs usual audience.
+
+![Letmeask Home Page](https://user-images.githubusercontent.com/67481026/123106157-c7b39d80-d40e-11eb-8f17-2b75f664a487.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
