@@ -18,8 +18,7 @@ export function NewRoom() {
 
     async function handleCreateRoom(event: FormEvent) {
         event.preventDefault();
-        
-        console.log(newRoom);
+                
         if (newRoom.trim()) {
             const roomRef = database.ref('rooms');
             const firebaseRoom = await roomRef.push({
@@ -51,7 +50,7 @@ export function NewRoom() {
                             type="text"
                             placeholder="Nome da sala"
                             onChange={(event) => setNewRoom(event.target.value)}
-                            value={newRoom.trim()}
+                            value={newRoom}
                         />
                         <Button type="submit">
                             Criar uma nova sala
