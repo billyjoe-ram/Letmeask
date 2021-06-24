@@ -5,6 +5,7 @@ import { database } from '../services/firebase';
 
 import { useAuth } from '../hooks/useAuth';
 
+import { Question } from '../components/Question';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
 
@@ -26,7 +27,7 @@ type FirebaseQuestions = Record<string, {
     isHighighted: boolean
 }>;
 
-type Question = {
+type QuestionType = {
     id: string,
     author: {
         name: string,
@@ -45,7 +46,7 @@ export function Room() {
     const roomId = params.id;
     const [roomName, setRoomName] =  useState('');
     const [newQuestion, setNewQuestion] =  useState('');
-    const [questions, setQuestions] =  useState<Question[]>([]);
+    const [questions, setQuestions] =  useState<QuestionType[]>([]);
 
     useEffect(() => {
         const roomRef = database.ref('rooms').child(roomId);
@@ -126,6 +127,14 @@ export function Room() {
                         <Button type="submit" disabled={!user}>Enviar pergunta</Button>
                     </div>
                 </form>
+
+                <div className="question-list">
+                    {questions.map((question) => {
+                        return(
+                            <Question key={question.id} content={question.content} author={question.author}  />
+                        );
+                    })}
+                </div>                
             </main>
         </div>
     );
