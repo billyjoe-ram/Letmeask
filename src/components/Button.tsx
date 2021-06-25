@@ -2,8 +2,10 @@ import { ButtonHTMLAttributes } from 'react';
 
 import '../styles/lma-button.scss';
 
-export function Button(props: ButtonHTMLAttributes<HTMLButtonElement>) {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & { isOutlined?: boolean };
+
+export function Button({ isOutlined = false, ...props }: ButtonProps) {
     return(
-        <button className="lma-button" {...props} />
+        <button className={`lma-button ${isOutlined ? 'lma-button-outlined' : ''}`} {...props} />
     );
 }
