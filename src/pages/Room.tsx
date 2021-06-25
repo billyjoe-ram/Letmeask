@@ -57,7 +57,7 @@ export function Room() {
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
-    const questionsRef = database.ref('rooms').child('questions');
+    const questionsRef = database.ref('rooms').child(roomId).child('questions');
     const likesRef = questionsRef.child(questionId).child('likes');
 
 
