@@ -7,10 +7,10 @@ Letmeask is a project that allows users to create realtime Q&A rooms, helping st
 ![Q&A Room Page](https://user-images.githubusercontent.com/67481026/123502931-2acb4d00-d626-11eb-940e-b2af038a1080.png)
 
 # Future Features
-- [] Change Color Pallete
-- [] Add modals to confirmation
-- [] Add dark mode
-- [] Add login with e-mail
+- [ ] Change Color Pallete (with Sass variables);
+- [ ] Add modals to confirmation;
+- [ ] Add dark mode;
+- [ ] Add login with e-mail;
 
 # Getting Started with Create React App
 
