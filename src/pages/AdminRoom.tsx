@@ -35,8 +35,6 @@ export function AdminRoom() {
     }
 
     async function handleAnswerQuestion(questionId: string) {
-        console.log("question to be answered", questionId);
-
         const questionsRef = database.ref('rooms').child(roomId).child('questions');
 
         await questionsRef.child(questionId).update({
