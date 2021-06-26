@@ -10,6 +10,8 @@ import { database } from '../services/firebase';
 
 import logoSvg from '../assets/logo.svg';
 import deleteSvg from '../assets/delete.svg';
+import checkSvg from '../assets/check.svg';
+import answerSvg from '../assets/answer.svg';
 
 import '../styles/room.scss';
 
@@ -23,6 +25,24 @@ export function AdminRoom() {
     const roomId = params.id;
     const { questions, roomName } = useRoom(roomId);
     const history = useHistory();
+
+    async function handleHighlightQuestion(questionId: string) {
+        const questionsRef = database.ref('rooms').child(roomId).child('questions');
+
+        await questionsRef.child(questionId).update({
+            isHighlighted: true
+        });
+    }
+
+    async function handleAnswerQuestion(questionId: string) {
+        console.log("question to be answered", questionId);
+
+        const questionsRef = database.ref('rooms').child(roomId).child('questions');
+
+        await questionsRef.child(questionId).update({
+            hasAnswer: true
+        });
+    }
 
     async function handleDeleteQuestion(questionId: string) {
         const confirm = window.confirm("Tem certeza que deseja exluir esta pergunta?");
@@ -66,8 +86,19 @@ export function AdminRoom() {
 
                 <div className="question-list">
                     {questions.map((question) => {
+                        
                         return(
-                            <Question key={question.id} content={question.content} author={question.author}>
+                            <Question key={question.id} content={question.content} author={question.author} hasAnswer={question.hasAnswer} isHighlighted={question.isHighlighted}>
+                                { !question.hasAnswer && (
+                                    <>
+                                        <button type="button" aria-label="Responder pergunta" onClick={() => handleAnswerQuestion(question.id)}>
+                                            <img src={checkSvg} alt="Responder pergunta" />
+                                        </button>
+                                        <button type="button" aria-label="Destacar pergunta" onClick={() => handleHighlightQuestion(question.id)}>
+                                            <img src={answerSvg} alt="Destacar pergunta" />
+                                        </button>
+                                    </>
+                                )}                                
                                 <button type="button" aria-label="Excluir pergunta" onClick={() => handleDeleteQuestion(question.id)}>
                                     <img src={deleteSvg} alt="Excluir pergunta" />
                                 </button>

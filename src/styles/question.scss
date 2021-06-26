@@ -6,6 +6,20 @@
 
     & + .question {
         margin-top: 8px;
+    }    
+
+    &:not(.answered).highlighted {
+        background-color: #f4f0ff;
+        border: 1px solid #835afd;
+        
+        footer .user-info span {
+            color: #29292e;
+            font-weight: 700;
+        }
+    }
+
+    &.answered {
+        background-color: #dbdcdd;
     }
 
     p {
@@ -35,6 +49,11 @@
                 
                 font-size: 14px;
             }
+        }
+
+        > div {
+            display: flex;
+            gap: 16px;
         }
 
         button {
